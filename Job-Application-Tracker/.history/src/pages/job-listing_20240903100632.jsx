@@ -1,0 +1,23 @@
+import { getJobs } from '@/api/apijobs'
+import { useSession } from '@clerk/clerk-react'
+import React, { useEffect } from 'react'
+
+const JobListing = () => {
+
+  const { session } =useSession()
+
+    const fetchJobs = asynct() => {
+      const supabaseAccessToken = await session.getToken({
+        template: "supabase",
+      });
+      const data = await getJobs(supabaseAccessToken);
+      console.log(data);
+    };
+  useEffect(() => {}, []);
+
+  return 
+   
+  
+};
+
+export default JobListing;
